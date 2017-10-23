@@ -37,7 +37,7 @@ body {
 .profile-info {
   position: static; /* override position:absolute */
   overflow: visible; /* override overflow:hidden */
-  width: auto;
+  width: 100%;
 }
 
 .object-titles {
@@ -127,6 +127,7 @@ body {
     background: #fff;
     border: 1px solid #ddd;
     height: auto;
+    width: auto;
 
     img {
       max-height: none;
