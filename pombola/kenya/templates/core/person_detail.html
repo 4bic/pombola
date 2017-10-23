@@ -4,6 +4,18 @@
 
 {% block subcontent %}
 
+  {% comment %} TODO: Pull in real data here {% endcomment %}
+  <div class="person-detail-responsibilities">
+      <h2>Responsibilities</h2>
+      <ul>
+          <li><strong>Representation</strong> – Acts on your behalf on issues of concern to you &amp; the nation.</li>
+          <li><strong>Oversight</strong> – Controls budget, oversees the presidency, ministries and parastatals plus appointments.</li>
+          <li><strong>Legislation</strong> – Develops or contributes to law making.</li>
+          <li><strong>NG-CDF</strong> – Runs the Constituency Development Fund.</li>
+          {% comment %} TODO: Might need javascript click-to-reveal for long lists? {% endcomment %}
+      </ul>
+  </div>
+
   <div class="person-detail-experience">
     <h2><a href="{% url "person_experience" slug=object.slug %}">Current positions</a></h2>
     {% include 'core/person_detail_experience_list.html' with positions=object.position_set.all.political.currently_active %}
