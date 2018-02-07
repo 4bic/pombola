@@ -92,12 +92,21 @@ urlpatterns = [
         TreatmentPoliticsThanks.as_view()
         ),
 
+<<<<<<< HEAD
     url('^info/newsletter$', RedirectView.as_view(
             pattern_name='info_page',
             permanent=False,
             ),
         {'slug': 'press'},
         ),
+=======
+    # url('^info/newsletter$', RedirectView.as_view(
+    #         pattern_name='info_page',
+    #         permanent=False,
+    #         ),
+    #     {'slug': 'press'},
+    #     ),
+>>>>>>> edbb136383d3addb35c0d5f169739a01b783396a
     url('^info/data$', RedirectView.as_view(
             pattern_name='info_page',
             permanent=False,
