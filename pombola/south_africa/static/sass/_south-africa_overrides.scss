@@ -90,6 +90,10 @@ a {
     }
 }
 
+.button--low-case {
+    text-transform: none;
+}
+
 .inline-search-box {
     input {
         border-radius: $border_radius 0 0 $border_radius;
@@ -766,10 +770,132 @@ body.home {
     }
 }
 
+.home__reps {
+    @include clearfix();
+}
+
+.home__reps__heading {
+    position: relative;
+    margin-bottom: 1.25em;
+}
+
+.home__reps__heading__title {
+    display: inline;
+}
+
+.home__reps__heading__more {
+    display: inline-block;
+    margin-left: 1em;
+    font-size: 0.8125em; //13px
+}
+
+.home__reps__featured-mp {
+    @media (min-width: 640px) {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        padding-right: 20px;
+    }
+    h3 {
+        text-transform: none;
+        font-size: 1.125em;
+    }
+    h3, h4, .summary {
+        margin-left: 102px; // space for floated thumbnail
+    }
+    .summary {
+        margin-top: 1em;
+        font-size: .8125em; // 13px;
+        line-height: 1.5em;
+    }
+}
+
+.featured-mp__thumb {
+    float: left;
+    max-width: 82px;
+    margin-bottom: 2em;
+}
+
+.home__reps__search {
+    margin-top: 2em;
+    clear: both;
+    @media (min-width: 640px) {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        padding-left: 20px;
+        clear: none;
+        margin-top: 0;
+    }
+
+    h3 {
+        text-transform: none;
+        font-size: 1.125em;
+    }
+    label {
+        font-size: 0.875em; //14px
+        font-family: $font_family_lato;
+    }
+    .inline-search-box {
+        margin-top: 0.5em;
+    }
+}
+
+.home__news {
+    background-color: $colour_cream;
+}
+
 .home__news__row {
     @media (min-width: 640px) {
         overflow: auto; // quick clearfix
     }
+}
+
+.home__news__survey {
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    border-bottom: 2px solid darken($colour_cream, 10%);
+    position: relative;
+    @media (min-width: 640px) {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: 0;
+        float: left;
+        width: 48%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        padding-right: 20px;
+    }
+
+    @media (min-width: 850px) {
+        width: 36%;
+    }
+    h3 {
+        // make it float over the thumbnail
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+        letter-spacing: 1px;
+    }
+    h4 {
+        font-family: $font_family_lato;
+        font-size: 1.125em;
+        line-height: 1.5em;
+        margin-bottom: 1em;
+    }
+}
+
+.home__news__survey__thumb {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5em;
 }
 
 .home__news__articles {
@@ -823,6 +949,12 @@ body.home {
 
     p.meta {
         margin-bottom: 0.75em;
+        font-family: $font_family_lato;
+        font-size: 0.8125em; //13px
+    }
+
+    .summary {
+        font-size: 0.875em;
     }
 }
 
@@ -833,6 +965,7 @@ body.home {
 .home__actions {
     background-color: $colour_green;
     color: #fff;
+    padding: 2em 0.75em;
     @include clearfix();
 
     a {
@@ -842,203 +975,116 @@ body.home {
     h2 {
         color: inherit;
         font-size: 2em;
+        @media (min-width: 640px) {
+            margin-bottom: 0;
+        }
+    }
 
-        small {
-            display: block; // break onto new line
-            color: mix(#fff, $colour_green, 60%);
-            font-size: (1em / 2) * 1.2; // get back to 1em, from 2em parent
-            line-height: 1.4em; // 1.4 of this element's ems
-            font-weight: normal;
-
-            @media (min-width: 640px) and (max-height: 700px) {
-                display: none;
-            }
+    .button {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 1.5em;
+        text-align: left;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.18);
+        @media (min-width: 640px) {
+            width: auto;
+            margin-right: 20px;
+            margin-bottom: 0;
         }
     }
 }
 
-.home__actions__primary,
-.home__actions__secondary {
-    max-width: 30em;
+.button--write {
+    background-size: 25px 18px;
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    padding-left: 3.4em;
+}
 
-    @media (min-width: 850px) {
-        float: left;
-        width: 50%;
-        box-sizing: border-box;
-        max-width: none;
+.button--write--rep {
+    background-image: url('/static/images/rep-icon.png');
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+        background-image: url('/static/images/rep-icon@2.png');
     }
+}
 
-    & > p:last-child {
-        margin-bottom: 0;
+.button--write--committee {
+    background-image: url('/static/images/committee-icon.png');
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+        background-image: url('/static/images/committee-icon@2.png');
+    }
+}
+
+.fake-button-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    @media (min-width: 640px) {
+        width: auto;
+    }
+    i {
+        position: absolute;
+        top: 0.75em;
+        left: 3.5em;
+        transform: rotate(-10deg);
+        font-style: normal;
+        font-weight: bold;
+    }
+}
+
+.button--fake-button {
+    opacity: 0.2;
+    &:hover,
+    &:active,
+    &:focus {
+        cursor: default;
+        background-color: #ff5a5a;
     }
 }
 
 .home__actions__primary {
-    margin-bottom: 1.5em;
-
-    @media (min-width: 850px) {
-        margin-bottom: 0;
+    @media (min-width: 640px) {
+        float: left;
+        width: 42%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
         padding-right: 20px;
-        text-align: right;
     }
 }
 
 .home__actions__secondary {
-    @media (min-width: 850px) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    // Vertically centre the input
-    // with the titles to the left.
-    .inline-search-box {
-      margin-top: 1.5em;
-
-      @media (min-width: 640px) and (max-height: 700px) {
-        margin-top: 0;
-      }
-    }
-}
-
-.home__infographics {
-    background-color: $colour_main_background;
-    border-bottom: 1px solid mix($colour_main_background, #000, 90%);
-    padding-bottom: 0;
-}
-
-.home__infographics__articles {
-    white-space: nowrap;
-    overflow: auto;
-    font-size: 0; // hack to zero out spacing around inline child elements
-    line-height: 0; // same hack
-    margin: 0 (-16px * 0.75); // counteract parent padding
-    padding: 0 (16px * 0.75); // reinstate padding, but inside the scrolling area
-
-    @media (min-width: 1000px) {
-        overflow: visible;
-        margin: 0;
-        padding: 0;
-    }
-}
-
-.home__infographics__article {
-    display: inline-block;
-    box-sizing: border-box;
-    overflow: hidden;
-    border: 1px solid mix($colour_main_background, #000, 90%);
-    border-bottom: 0;
-    font-size: 16px;
-    line-height: normal;
-    width: 220px;
-
-    & + & {
-        margin-left: 0.75em;
-    }
-
     @media (min-width: 640px) {
-        width: 225px;
-
-        & + & {
-            margin-left: 20px;
-        }
+        float: left;
+        width: 58%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        padding-left: 20px;
     }
+}
 
+.home__three-boxes {
+    @include clearfix();
+    a {
+        display: block;
+    }
+}
+
+.home__three-boxes__box {
+    margin-bottom: 2em;
     img {
         width: 100%;
-        height: auto;
     }
-
-    &:nth-child(4n + 1) {
-        height: 220px;
-
-        &:hover {
-            height: 225px;
+    @media (min-width: 640px) {
+        float: left;
+        width: 32%;
+        margin-right: 2%;
+        &:last-child {
+            margin-right: 0;
         }
-    }
-
-    &:nth-child(4n + 2) {
-        height: 240px;
-
-        &:hover {
-            height: 245px;
-            margin-top: -5px;
-        }
-    }
-
-    &:nth-child(4n + 3) {
-        height: 200px;
-
-        &:hover {
-            height: 205px;
-        }
-    }
-
-    &:nth-child(4n + 4) {
-        height: 220px;
-
-        &:hover {
-            height: 225px;
-        }
-    }
-}
-
-.home__topics__list {
-    text-align: center;
-    margin: 0 -8px;
-
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-
-    -ms-justify-content: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-}
-
-.home__topics__topic {
-    display: block;
-    margin: 8px;
-    width: 100%;
-
-    // The core .button styling but without colours
-    font-size: 0.875em;
-    padding: 1em 1.33em;
-    font-family: $font_family_lato;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    border-radius: $border_radius;
-
-    // default "disabled" styling
-    background-color: $colour_cream;
-    color: $colour_grey;
-    cursor: default;
-
-    @media (min-width: 400px) {
-        display: inline-block; // in case flexbox isn't supported, revert to inline buttons
-        width: auto;
-        -ms-flex: 1 0 auto;
-        -webkit-flex: 1 0 auto;
-        flex: 1 0 auto;
-    }
-}
-
-a.home__topics__topic {
-    // More button-like styling, since we know this is a link
-    background-color: $colour_primary;
-    color: #fff;
-    cursor: pointer;
-    -webkit-appearance: none;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-        background: mix($colour_primary, #000, 80%);
-        color: #fff;
-        text-decoration: none;
     }
 }
 
@@ -2036,6 +2082,12 @@ li, div {
     }
 }
 
+.sidebar {
+  a[href^="mailto"] {
+    word-wrap: break-word;
+  }
+}
+
 .large-container {
     h3 {
         border: none;
@@ -2100,9 +2152,6 @@ $contact_icon_path: '../images/person-contact-icons';
             padding-left: 38px;
 
             background: nth($site, 2) url('#{$contact_icon_path}/#{nth($site, 1)}-icon.png') no-repeat 14px 50%;
-            @media($high_dpi_screen){
-              background-image: url('#{$contact_icon_path}/#{nth($site, 1)}-icon@2x.png');
-            }
             background-image: url('#{$contact_icon_path}/#{nth($site, 1)}-icon.svg'), none;
             background-size: 18px 14px;
 
@@ -2113,6 +2162,10 @@ $contact_icon_path: '../images/person-contact-icons';
             }
         }
     }
+}
+
+.contact-actions__wip {
+    @extend .contact-actions__email;
 }
 
 .ui-tabs {

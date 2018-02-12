@@ -7,6 +7,8 @@ OPTIONAL_APPS = APPS_REQUIRED_BY_SPEECHES + (
     'za_hansard',
     'pombola.interests_register',
     'pombola.spinner',
+    'pombola.writeinpublic',
+    'formtools'
 )
 
 SPEECH_SUMMARY_LENGTH = 30
@@ -45,7 +47,13 @@ COUNTRY_CSS = {
             'css/libs/datatables-1.10.10.css',
         ),
         'output_filename': 'css/datatables.css'
-    }
+    },
+    'chosen': {
+        'source_filenames': {
+            'css/libs/chosen/chosen.css',
+        },
+        'output_filename': 'css/chosen.css'
+    },
 }
 
 COUNTRY_JS = {
@@ -105,7 +113,20 @@ COUNTRY_JS = {
             'js/mp-profiles-live-filter.js',
         ),
         'output_filename': 'js/mp-profiles-live-filter.js',
-    }
+    },
+    'person-messages-ajax': {
+        'source_filenames': (
+            'js/person-messages-ajax.js',
+        ),
+        'output_filename': 'js/person-messages-ajax.js'
+    },
+    'writeinpublic': {
+        'source_filenames': (
+            'js/libs/chosen.jquery.js',
+            'js/writeinpublic.js',
+        ),
+        'output_filename': 'js/writeinpublic.js'
+    },
 }
 
 INFO_PAGES_ALLOW_RAW_HTML = True
